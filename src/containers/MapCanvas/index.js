@@ -5,18 +5,26 @@
 */
 
 import React from 'react';
-import {Marker, GoogleApiWrapper, Map} from 'google-maps-react';
+import GoogleMapReact from 'google-map-react';
 
 // Styling
 import styledMapCanvas from './styledMapCanvas.js';
+import mapStyle from './mapStyle.js'
 
-export class MapCanvas extends React.Component {    
+class MapCanvas extends React.Component {
+
     render() {
         return (
-                <Map google={this.props.google} zoom={14} style={styledMapCanvas}/>        );
+                <div style={{height: '100vh', width: '70vw'}}>
+                <GoogleMapReact 
+            bootstrapURLKeys={{ key: 'AIzaSyCg5aEuumskDfhrqRKzpnVimX4KfrVo9io', language: 'en' }}
+            center={{lat: 41.2926,lng: -82.2183}}
+            zoom={16}
+            options={{styles: mapStyle}}
+                ></GoogleMapReact>
+                </div>
+        );
     }
 }
 
-export default GoogleApiWrapper({
-    apiKey: ('AIzaSyCg5aEuumskDfhrqRKzpnVimX4KfrVo9io') // Who cares about security during a demo am I right? 
-})(MapCanvas);
+export default MapCanvas;
