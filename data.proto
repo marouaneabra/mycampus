@@ -1,0 +1,18 @@
+# Data
+## Date
+## Event Names
+## Event Description
+## Event Link
+## Event Time
+## Event Location
+
+syntax = "proto2";
+
+message Event {
+  required string event_name = 1;
+  required int32 id = 2;
+  required string event_description = 3;
+  required string event_link = 4;
+  required float event_time = 5;
+  required string event_location = 6;
+  }
