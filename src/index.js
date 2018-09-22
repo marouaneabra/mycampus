@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Test = () => {
-    return <div>Hello</div>;
-}
+import App from './containers/App/';
 
-ReactDOM.render(<Test/>, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById("app"));
 
 module.hot.accept();
