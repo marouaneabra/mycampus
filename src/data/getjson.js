@@ -9,6 +9,8 @@ const low = require('lowdb')
     //.write()
 const request = require('request');
 
+const categories = ["Art", "Music", "Sports", "Outdoors", "Academics", "Career", "Community Service", "Religion and Spirituality", "Health", "Master Classes", "Recitals"];
+
 request('https://calendar.oberlin.edu/api/2/events', { json: true }, (err, res, body) => {
 	if (err) { return console.log(err); }
 	const newState = {}
@@ -16,6 +18,7 @@ request('https://calendar.oberlin.edu/api/2/events', { json: true }, (err, res, 
 	db.defaults({ posts: [], user: {}, count: 0 })
 	.write()
 	for (var i =0; i < body.events.length; i++){
+	    var randomNum = Math.floor(Math.random()*10);
 	    console.log(body.events[i].event["title"]);
 	    var anEvent = body.events[i];
 	    // Add an event
@@ -24,7 +27,7 @@ request('https://calendar.oberlin.edu/api/2/events', { json: true }, (err, res, 
  title: anEvent.event["title"],
  description: anEvent.event['description'],
  url: anEvent.event['url'],
- category: anEvent.event["filters"].event_types[0].name, 
+ category: categories[randomNum], 
 latitude: anEvent.event["geo"]["latitude"],
 longitude: anEvent.event["geo"]["longitude"],
  start: anEvent.event["event_instances"][0].event_instance["start"],
