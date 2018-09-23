@@ -17,6 +17,25 @@ export default class App extends React.Component {
 
     componentWillMount() {
         this.setState(initState);
+        
+    }
+
+    componentDidMount() {
+        const newPost = {
+                "id": 11,
+                "title": "Oberlin College Women's Tennis vs Intercollegiate Tennis Association Regional Championship",
+                "description": "Oberlin College Women's Tennis vs Intercollegiate Tennis Association Regional Championship\n https://goyeo.com/calendar.aspx?id=4976",
+                "url": "https://goyeo.com/calendar.aspx?id=4976",
+                "category": "Sports and Wellness",
+                "latitude": "34.0522",
+                "longitude": "-118.2437",
+                "start": "2018-09-23T00:00:00-04:00",
+                "end": null
+        }
+
+        this.addPost(newPost)
+
+        console.log(this.state.posts)
     }
 
     // Add post to state
@@ -24,8 +43,10 @@ export default class App extends React.Component {
         this.state.posts.push(post)
         
         this.setState((state) => {
-            posts: state
+            posts: state.posts
         })
+
+        this.render()
     }
 
     // Respond to Click for a pin
@@ -37,11 +58,13 @@ export default class App extends React.Component {
 
         let markers = [];
         this.state.posts.forEach(function(post) {
-            markers.push(<MCMarker lat={post.latitude} lng={post.longitude} post={post} onClick={() => {console.log('sh')}} />)
+            markers.push( <MCMarker key={post.id} lat={post.latitude} lng={post.longitude} post={post} onClick={() => {console.log('sh')}} />) //TODO: Handle onClick
         })
+
+        console.log(markers)
         
         return (
-                <MapCanvas>
+                <MapCanvas posts={this.state.posts}>
                 {markers}
                 </MapCanvas>
         );
