@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const Wrapper = styled.button`
   background-color: grey;
-  box-shadow: 2px 2px rgba(0,0,0,0.8);
   border: none;
   color: white;
   text-align: center;

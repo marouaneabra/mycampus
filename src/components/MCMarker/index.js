@@ -7,7 +7,7 @@ const MCMarker = (props) => {
     let then = new Date(props.post.start).getHours();
 
     return (
-            <Wrapper>{then - now}</Wrapper>
+            <Wrapper onClick={() => props.onClick(props.post.id)}>{then - now}</Wrapper>
     );
 }
 

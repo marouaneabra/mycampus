@@ -13,7 +13,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onClick = this.onClick.bind(this); // Called whenever a pin is selected
+    this.onClick = this.onClick.bind(this);
+    //this.onClick = this.onClick.bind(this); // Called whenever a pin is selected
     this.addPost = this.addPost.bind(this); // Called to add a constructed post to the db
     this.state = {};
   }
@@ -38,29 +39,32 @@ export default class App extends React.Component {
   }
 
   // Respond to Click for a pin
-  onClick(index) {
-    console.log(index); // TODO: Implement this
+  onClick(id) {
+    this.setState({selected: id}); // TODO: Implement this
   }
 
   render() {
     let markers = [];
-    this.state.posts.forEach(function(post) {
+    this.state.posts.forEach((post) => {
       markers.push(
         <MCMarker
           key={post.id}
           lat={post.latitude}
           lng={post.longitude}
           post={post}
-          onClick={() => {
-            console.log("sh");
-          }}
+          onClick={this.onClick}
         />
       ); //TODO: Handle onClick
     });
-    console.log(markers);
+    // console.log(markers);
+
+    const currentPost = this.state.posts[this.state.selected];
+
     return (
       <div>
-        <CreateEventView />
+       {/* <CreateEventView 
+        addPost={post => this.addPost(post)} /> */}
+        <InfoContainer post={currentPost}/>
         <MapCanvas posts={this.state.posts.length} zoom={18}>
           {markers}
         </MapCanvas>
