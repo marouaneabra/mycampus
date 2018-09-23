@@ -9,7 +9,7 @@ const AddTitleEl = props => {
     <Wrapper>
         <XMark />
       <form>
-        Title: <input id="title" type="text" name="title" value="" onchange="props.changeTitle(this.value)"/>
+        Title: <input id="title" type="text" name="title" value="" onChange={props.changeTitle(this.value)} />
         <br />
       </form>
     </Wrapper>

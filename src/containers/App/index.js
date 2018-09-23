@@ -4,29 +4,37 @@ import React from "react";
 
 import MapCanvas from "../MapCanvas";
 import InfoContainer from "../../components/InfoContainer";
+import CreateEventView from "../CreateEventView";
 import MCMarker from "../../components/MCMarker";
 
 import initState from "./initState.js";
 
 export default class App extends React.Component {
-  contructor(props) {
-    //super(props);
+  constructor(props) {
+    super(props);
+
     this.onClick = this.onClick.bind(this); // Called whenever a pin is selected
     this.addPost = this.addPost.bind(this); // Called to add a constructed post to the db
-    this.state = null;
+    this.state = {};
   }
 
   componentWillMount() {
     this.setState(initState);
   }
 
+  componentDidUpdate() {
+    console.log("updated");
+  }
+
   // Add post to state
   addPost(post) {
     this.state.posts.push(post);
 
-    this.setState(state => {
-      posts: state;
+    this.setState((state, props) => {
+      posts: state.posts;
     });
+
+    this.forceUpdate();
   }
 
   // Respond to Click for a pin
@@ -39,6 +47,7 @@ export default class App extends React.Component {
     this.state.posts.forEach(function(post) {
       markers.push(
         <MCMarker
+          key={post.id}
           lat={post.latitude}
           lng={post.longitude}
           post={post}
@@ -46,13 +55,15 @@ export default class App extends React.Component {
             console.log("sh");
           }}
         />
-      );
+      ); //TODO: Handle onClick
     });
-
+    console.log(markers);
     return (
       <div>
-        <InfoContainer />
-        <MapCanvas>{markers}</MapCanvas>
+        <CreateEventView />
+        <MapCanvas posts={this.state.posts.length} zoom={18}>
+          {markers}
+        </MapCanvas>
       </div>
     );
   }

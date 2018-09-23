@@ -1,7 +1,6 @@
 import React from "react";
-import AddTitleEl from "../components/AddTitleEl";
-import XMark from "../components/XMark";
-import SaveButton from "../components/SaveButton";
+import AddTitleEl from "../../components/AddTitleEl";
+import SaveButton from "../../components/SaveButton";
 
 // Styling
 import Wrapper from "./styleCreateEventView";
@@ -16,7 +15,6 @@ class CreateEventView extends React.Component {
     return (
       <Wrapper>
         <AddTitleEl newPost={this.state.newPost}/>
-        <XMark />
         <SaveButton />
       </Wrapper>
     );
