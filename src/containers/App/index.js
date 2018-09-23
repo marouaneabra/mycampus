@@ -8,9 +8,9 @@ import InfoContainer from '../InfoContainer';
 export default class App extends React.Component {
     render() {
         return (
-            <div>
-            <MapCanvas />
+            <div style={{display: 'inline-block', margin: '0'}}>
             <InfoContainer />
+            <MapCanvas />
             </div>
         );
     }

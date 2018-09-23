@@ -1,15 +1,21 @@
 import React from 'react';
 
 // Styling
-import styled from 'styled-components';
-
+import Wrapper from './Wrapper.js'
 class InfoContainer extends React.Component {
 
     render() {
+        
         return (
-                <div style={{display: 'inline-block', height: '100vh', width: '30wh'}}>
-                TEST
-                </div>
+            // <div style={{display: 'inline-block', position: absolute,
+            // left: 0,
+            // top: 0,
+            // width: 30vw,
+            // height: 100vh}}></div>
+                <Wrapper>
+                    TEST
+                    {/* <PlusButton/> */}
+                </Wrapper>
         );
     }
 }
