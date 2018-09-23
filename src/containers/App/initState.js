@@ -112,6 +112,63 @@ const initState = () => {
                 "end": "2018-09-22T15:00:00-04:00"
             }
         ],
+        submissions: [
+            {
+                "id": 0, 
+                "title": "Amateur Barber Night", 
+                "description": "Velit adipisci amet adipisci.", 
+                "url": "https://calendar.oberlin.edu/event/29 Psalms for 29 Palms", 
+                "category": "Art", 
+                "latitude": "41.29800",
+                "longitude": "-82.22300",
+                "time-start": "2018-09-22T08:00:00-04:00", 
+                "time-end": "2018-07-22T05:30:00-04:00"
+            }, 
+            {
+                "id": 1, 
+                "title": "Aesthetic Bug Gloss", 
+                "description": "Velit adipisci amet adipisci.", 
+                "url": "https://calendar.oberlin.edu/event/Balls of the Bull Festival", 
+                "category": "Art", 
+                "latitude": -6.44271022064197, 
+                "longitude": -144.70961767206907, 
+                "time-start": "2018-09-22T08:00:00-04:00", 
+                "time-end": "2018-07-22T05:30:00-04:00"
+            }, 
+            {
+                "id": 2, 
+                "title": "Arise and Shinola", 
+                "description": "Velit adipisci amet adipisci.", 
+                "url": "https://calendar.oberlin.edu/event/Air Fair", 
+                "category": "Religion and Spiriality", 
+                "latitude": -6.44271022064197, 
+                "longitude": -144.70961767206907, 
+                "time-start": "2018-09-22T08:00:00-04:00", 
+                "time-end": "2018-09-22T08:00:00-04:00"
+            }, 
+            {
+                "id": 3, 
+                "title": "An Arbor Day to Remember", 
+                "description": "Velit adipisci amet adipisci.", 
+                "url": "https://calendar.oberlin.edu/event/Air Fair", 
+                "category": "Outdoors", 
+                "latitude": -6.44271022064197, 
+                "longitude": -144.70961767206907, 
+                "time-start": "2018-09-22T08:46:00-04:00", 
+                "time-end": "2018-09-22T05:30:00-04:00"
+            }, 
+            {
+                "id": 4, 
+                "title": "29 Psalms for 29 Palms", 
+                "description": "Velit adipisci amet adipisci.", 
+                "url": "https://calendar.oberlin.edu/event/Adventure Camping", 
+                "category": "Health", 
+                "latitude": -6.44271022064197, 
+                "longitude": -144.70961767206907, 
+                "time-start": "2018-09-22T08:35:00-04:00", 
+                "time-end": "2018-09-22T05:30:00-04:00"
+            }
+        ],
         "count": 10
     });
 }

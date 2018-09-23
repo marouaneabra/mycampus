@@ -12,7 +12,12 @@ import styledMapCanvas from './styledMapCanvas.js';
 import mapStyle from './mapStyle.js'
 
 const MapCanvas = (props) => {
-        return (
+
+    if(props.posts) {
+        console.log("prop passed")
+    }
+    
+    return (
                 <div style={styledMapCanvas}>
                 <GoogleMapReact 
             bootstrapURLKeys={{ key: 'AIzaSyCg5aEuumskDfhrqRKzpnVimX4KfrVo9io', language: 'en' }}
