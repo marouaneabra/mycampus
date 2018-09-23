@@ -15,7 +15,7 @@ class MapCanvas extends React.Component {
 
     render() {
         return (
-                <div style={{height: '100vh', width: '70vw'}}>
+                <div style={styledMapCanvas}>
                 <GoogleMapReact 
             bootstrapURLKeys={{ key: 'AIzaSyCg5aEuumskDfhrqRKzpnVimX4KfrVo9io', language: 'en' }}
             center={{lat: 41.2926,lng: -82.2183}}
