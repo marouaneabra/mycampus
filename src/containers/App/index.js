@@ -8,65 +8,64 @@ import MCMarker from '../../components/MCMarker';
 import initState from './initState.js';
 
 export default class App extends React.Component {
-    contructor(props) {
-        //super(props);
+    constructor(props) {
+        super(props);
+        
         this.onClick = this.onClick.bind(this); // Called whenever a pin is selected
         this.addPost = this.addPost.bind(this); // Called to add a constructed post to the db 
-        this.state = null;
+        this.state = {};
     }
 
     componentWillMount() {
-        this.setState(initState);
-        
+        this.setState(initState);       
     }
-
-    componentDidMount() {
-        const newPost = {
-                "id": 11,
-                "title": "Oberlin College Women's Tennis vs Intercollegiate Tennis Association Regional Championship",
-                "description": "Oberlin College Women's Tennis vs Intercollegiate Tennis Association Regional Championship\n https://goyeo.com/calendar.aspx?id=4976",
-                "url": "https://goyeo.com/calendar.aspx?id=4976",
-                "category": "Sports and Wellness",
-                "latitude": "34.0522",
-                "longitude": "-118.2437",
-                "start": "2018-09-23T00:00:00-04:00",
-                "end": null
-        }
-
-        this.addPost(newPost)
-
-        console.log(this.state.posts)
+    
+    componentDidUpdate() {
+        console.log("updated")
     }
 
     // Add post to state
     addPost(post) {
         this.state.posts.push(post)
         
-        this.setState((state) => {
+        this.setState((state, props) => {
             posts: state.posts
         })
 
-        this.render()
+        this.forceUpdate();
     }
 
+   
     // Respond to Click for a pin
     onClick(index) {
         console.log(index); // TODO: Implement this
     }
 
     render() {
-
+             let newPost = {
+                "id": 11,
+                "title": "Oberlin College Women's Tennis vs Intercollegiate Tennis Association Regional Championship",
+                "description": "Oberlin College Women's Tennis vs Intercollegiate Tennis Association Regional Championship\n https://goyeo.com/calendar.aspx?id=4976",
+                "url": "https://goyeo.com/calendar.aspx?id=4976",
+                "category": "Sports and Wellness",
+                "latitude": "41.29200",
+                "longitude": "-82.22000",
+                "start": "2018-09-22T00:00:00-04:00",
+                "end": null
+        }
+    
+        
         let markers = [];
         this.state.posts.forEach(function(post) {
             markers.push( <MCMarker key={post.id} lat={post.latitude} lng={post.longitude} post={post} onClick={() => {console.log('sh')}} />) //TODO: Handle onClick
         })
-
         console.log(markers)
-        
         return (
-                <MapCanvas posts={this.state.posts}>
+                <div>
+                <MapCanvas posts={this.state.posts.length} zoom={18}>
                 {markers}
-                </MapCanvas>
+            </MapCanvas>
+                </div>
         );
     }
 }
