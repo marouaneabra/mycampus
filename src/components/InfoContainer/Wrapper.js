@@ -1,7 +1,7 @@
 import styled from "styled-components";
 const Wrapper = styled.div`
   display: inline-block;
-  background-color: blue;
+  background-color: lightgrey;
   position: absolute;
   left: 0;
   top: 0;
