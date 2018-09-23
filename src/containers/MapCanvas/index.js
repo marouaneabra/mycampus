@@ -4,16 +4,14 @@
   Last Updated by Ezra
 */
 
-import React from 'react';
+import React, {Children} from 'react';
 import GoogleMapReact from 'google-map-react';
 
 // Styling
 import styledMapCanvas from './styledMapCanvas.js';
 import mapStyle from './mapStyle.js'
 
-class MapCanvas extends React.Component {
-
-    render() {
+const MapCanvas = (props) => {
         return (
                 <div style={styledMapCanvas}>
                 <GoogleMapReact 
@@ -21,10 +19,11 @@ class MapCanvas extends React.Component {
             center={{lat: 41.2926,lng: -82.2183}}
             zoom={16}
             options={{styles: mapStyle}}
-                ></GoogleMapReact>
+                >
+                { Children.toArray(props.children) }
+            </GoogleMapReact>
                 </div>
         );
-    }
 }
 
 export default MapCanvas;

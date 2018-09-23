@@ -1,13 +1,14 @@
-import {Marker} from 'google-maps-react';
 import React from 'react';
 
-export default const MCMarker = (props) => {
+import Wrapper from './styleMarker.js';
+
+const MCMarker = (props) => {
+    let now = new Date().getHours();
+    let then = new Date(props.post.start).getHours();
+
     return (
-            <Marker
-        name={props.name}
-        position={props.position}
-        icon={{
-            url: "../../images/icon.png"  
-        }} />
+            <Wrapper>{then - now}</Wrapper>
     );
 }
+
+export default MCMarker;
